@@ -14,12 +14,12 @@
     var a1 = 1;
 
     function one() {
-      eq(_, a1);
+      eq(1, a1);
     }
 
-    eq(_, a1);
+    eq(1, a1);
     one();
-    eq(_, a1);
+    eq(1, a1);
 
     /**
      * A local scope example
@@ -27,22 +27,22 @@
     var a2 = 1;
 
     function two(a2) {
-      eq(_, a2);
+      eq(5, a2);
     }
-    eq(_, a2);
+    eq(1, a2);
     two(5);
-    eq(_, a2);
+    eq(1, a2);
 
     /**
      * Another local scope example
      */
     function three() {
       var a3 = 3;
-      eq(_, a3);
+      eq(3, a3);
     }
 
     three();
-    eq(_, typeof(a3)); // typeof does not throw reference exception
+    eq('undefined', typeof(a3)); // typeof does not throw reference exception
 
     /**
      * Intermediate: No such thing as block scope in JavaScript (ES5; ES6 introduces let)
@@ -52,14 +52,14 @@
     function four() {
       if (true) {
         var a4 = 4;
-        eq(_, a4);
+        eq(4, a4);
       }
-      eq(_, a4);
+      eq(4, a4);
     }
 
-    eq(_, a4);
+    eq(1, a4);
     four();
-    eq(_, a4);
+    eq(1, a4);
 
     /**
      * Intermediate: Object properties
@@ -68,20 +68,20 @@
 
     function Five() {
       this.a5 = 5;
-      eq(_, a5);
+      eq(1, a5);
     }
 
-    eq(_, a5);
-    eq(_, typeof new Five().a5);
-    eq(_, a5);
-    eq(_, typeof Five());
+    eq(1, a5);
+    eq("number", typeof new Five().a5);
+    eq(1, a5);
+    eq("undefined", typeof Five());
     // throws(
     //   function () {
     //     console.log(Five().a5);
     //   }
     // );
-    eq(_, a5);
-    eq(_, window.a5);
+    eq(1, a5);
+    eq(5, window.a5);
 
     /**
      * Advanced: Closure
@@ -94,14 +94,14 @@
         a6 += 4;
         return a6;
       };
-      eq(_, a6);
+      eq(6, a6);
       return dummy;
     }();
-    eq(_, a6);
+    eq(1, a6);
     // six === dummy
-    eq(_, six());
-    eq(_, six());
-    eq(_, six());
+    eq(10, six());
+    eq(14, six());
+    eq(18, six());
 
     /**
      * Advanced: Prototype-based scope resolution
@@ -110,17 +110,17 @@
 
     function Seven() {
       this.a7 = 7;
-      eq(_, a7);
+      eq(1, a7);
     }
 
     Seven.prototype.a7 = -1;
     Seven.prototype.b7 = 8;
 
-    eq(_, a7);
+    eq(1, a7);
     var seven = new Seven();
-    eq(_, a7);
-    eq(_, seven.a7);
-    eq(_, seven.b7);
+    eq(1, a7);
+    eq(7, seven.a7);
+    eq(8, seven.b7);
 
     /**
      * Global+Local: An extra complex Case introducing 'hoisting'.
@@ -128,65 +128,64 @@
     var x1 = 5;
 
     (function (undefined) {
-      eq(_, x1); // because we override undefined by 10
+      eq(void 0, x1); // because we override undefined by 10
       var x1 = 10;
-      eq(_, x1);
+      eq(10, x1);
     })(10);
 
     var x2 = 5;
 
     (function () {
       var x2;
-      eq(_, x2);
+      eq(undefined, x2);
       x2 = 10;
-      eq(_, x2);
+      eq(10, x2);
     })();
 
     /**
      * Catch clause-scoped variable
      */
     var e = 5;
-    eq(_, e);
+    eq(5, e);
     try {
       throw 6;
     } catch (e) {
-      eq(_, e);
+      eq(6, e);
     }
-    eq(_, e);
+    eq(5, e);
 
     var e2 = 5;
-    eq(_, e2);
-    eq(_, f2);
+    eq(5, e2);
+    eq(undefined, f2);
     try {
       throw 6;
     } catch (e2) {
       var f2 = 10;
-      eq(_, e2);
-      eq(_, f2);
+      eq(6, e2);
+      eq(10, f2);
     }
-    eq(_, e2);
-    eq(_, f2);
+    eq(5, e2);
+    eq(10, f2);
 
     /**
      * Eval cheating on lexical scoping
      */
     var a8 = 10;
-    eq(_, a8);
+    eq(10, a8);
 
     function eight(code) {
       eval(code);
-      eq(_, a8);
+      eq(4, a8);
     }
 
     eight('var a8 = 4;');
-    eq(_, a8);
-    var tmp = eight;
-    var eight = function (code) {
+    eq(10, a8);
+    eight = function (code) {
       eval(code);
-      eq(_, a8);
+      eq(55, a8);
     };
     eight('a8 = 55;');
-    eq(_, a8);
+    eq(55, a8);
 
 
     /**
