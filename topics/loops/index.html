@@ -1,0 +1,40 @@
+<script>
+
+    function times(n, f) { //n razy wywolaj funkcje f
+        for (var i=0; i < n; i+1) {
+            f(i)
+        }
+    }
+//    console.log('hello');
+    var numbers = [1, 2, 3, 4, 5];
+    var total = 0;
+    // for
+    for (var i=0; i < numbers.length; i += 1) {
+        numbers.push(i); //bedzie iterowal bez konca
+        total += numbers[i]
+    }
+
+    times(numbers.length, function (i) { //wywolaj tyle razy funkcje
+        total += numbers[i]
+    });
+    console.log(total);
+//
+//    console.log(
+//        numbers.reduce(
+//            function (total, next, index, array) {
+//                console.log(total, next, index, array)
+//                return total + next;
+//            }, 0
+//        )
+//    )
+ // najlepsze rozwiazanie - im mniej kodu tym lepiej, mniej pomylek
+    console.log(
+        numbers.reduce( // reduce - przechodzi po wszystkich elementach i zlicza??
+        (total, next) => total + next, 0
+)
+    )
+
+    // push - chcemy zyskac wiecej kodu kosztem czytelnosci
+
+
+</script>
