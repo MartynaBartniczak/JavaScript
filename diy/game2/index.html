@@ -1,0 +1,26 @@
+<div>
+    <form id="form">
+        <button type="submit" id="go-button">Go</button>
+    </form>
+</div>
+
+<script>
+    var div = document.querySelector('div');
+    var button = document.getElementById('go-button');
+    var form = document.getElementById('form');
+
+    form.addEventListener('submit', function (event) {
+      console.log('Form submit');
+      event.preventDefault();
+    });
+
+    button.addEventListener('click', function handleClick(event) {
+      console.log('Button clicked!');
+    });
+
+    div.addEventListener('click', function (event) {
+      console.log('Div clicked!');
+    });
+
+    console.log(button);
+</script>
