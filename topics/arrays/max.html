@@ -1,0 +1,22 @@
+<script>
+    //Math.max
+
+    function mediana(numbers) {
+//        debugger;
+        return numbers.reduce(function (total, next) {
+            return (next + total)/numbers.length
+        }, 0)
+    }
+
+    function odd(numbers) {
+        return numbers.filter(function (item) {
+            return item % 2 === 1
+        })
+    }
+
+    function even(numbers) {
+        return numbers.filter(function (item) {
+            return item % 2
+        })
+    }
+</script>

@@ -1,0 +1,28 @@
+<script>
+    console.log("hello");
+    var numbers = [1, 2, 3, 4, 5]
+    var total = 0;
+    for(i=0; i<numbers.length; i += 1){
+       total += numbers[i]
+    }
+
+    console.log (total)
+
+    console.log (
+        numbers.reduce (
+            function (total, next) {
+                return total + next
+            }
+        )
+    )
+
+    console.log("hello");
+
+    console.log(
+        numbers.reduce((total,next) => total + next, 0))
+
+
+
+
+
+</script>
