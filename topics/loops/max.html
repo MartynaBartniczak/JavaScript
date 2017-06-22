@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    function max(numbers) {
+//        debugger;
+//        return numbers.reduce();
+//    }
+
+    function min(numbers) {
+        return numbers.reduce(function(currentMin, next) {
+            return currentMin < next ? currentMin : next;
+        }, Infinity)
+    }
+
+    function total(numbers) {
+        return numbers.reduce(function(suma, next) {
+            return suma + next;
+        }, 0)
+    }
+
+    function odd(tablica) {
+        return tablica.filter(function (current) {
+            return current % 2 === 1;
+        }, 0)
+    }
+
+    function even(tablica) {
+        return tablica.filter(function (current) {
+            return current % 2 === 0;
+        }, 0)
+    }
+</script>
+</body>
+</html>
