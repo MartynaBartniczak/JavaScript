@@ -1,3 +1,9 @@
+<style>
+    .red {
+        background: #c00;
+    }
+</style>
+
 <div style="padding: 20px;">
     <form id="form">
         <button type="submit" id="go-button">Go</button>
@@ -5,6 +11,11 @@
 </div>
 
 <script>
+
+//    var button2 = $('#go-button').click(function () {
+//      $(this).toggleClass('red');
+//    });
+
     var div = document.querySelector('div');
     var button = document.querySelector('#go-button');
     var form = document.querySelector('#form');
@@ -16,6 +27,11 @@
 
     button.addEventListener('click', function (event) {
       console.log('Button clicked!', event.target);
+      if (event.target.classList.contains('red')) {
+        event.target.classList.remove('red');
+      } else {
+        event.target.classList.add('red');
+      }
     });
 
     div.addEventListener('click', function (event) {
@@ -23,12 +39,13 @@
     });
 
     form.addEventListener('click', function () {
-      var zupa = arguments[0]
+      var zupa = arguments[0];
       console.log('Form clicked!', zupa.target);
     });
 
     form.addEventListener('dblclick', function (event) {
       console.log('Form dblclicked', event.target);
+      console.log(event);
     });
 
     function totalArgs() {
