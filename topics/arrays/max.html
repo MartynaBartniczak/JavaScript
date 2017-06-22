@@ -1,0 +1,16 @@
+<script>
+    //Math.max
+
+    function max(numbers) {
+      var currentMax = -Infinity;
+      var i;
+      
+      for (i = 0; i < numbers.length; i += 1) {
+        if (numbers[i] > currentMax) {
+          currentMax = numbers[i]
+        }
+      }
+
+      return currentMax;
+    }
+</script>
