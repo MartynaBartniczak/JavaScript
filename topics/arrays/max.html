@@ -2,16 +2,6 @@
   //Math.max
 
   function max(numbers) {
-//    var currentMax = -Infinity;
-//    var i;
-//
-//    for (i = 0; i < numbers.length; i += 1) {
-//      if (numbers[i] > currentMax) {
-//        currentMax = numbers[i]
-//      }
-//    }
-//
-//    return currentMax;
     return numbers.reduce(function (currentMax, next) {
       return next > currentMax ? next : currentMax;
     }, -Infinity);
