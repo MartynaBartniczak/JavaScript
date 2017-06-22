@@ -14,13 +14,28 @@
       event.preventDefault();
     });
 
-    button.addEventListener('click', function handleClick(event) {
+    button.addEventListener('click', function (event) {
       console.log('Button clicked!', event.target);
     });
 
     div.addEventListener('click', function (event) {
-      console.log('Div clicked!', event.target);
+      console.log('Div clicked!', arguments[0].target);
     });
+
+    form.addEventListener('click', function () {
+      var zupa = arguments[0]
+      console.log('Form clicked!', zupa.target);
+    });
+
+    form.addEventListener('dblclick', function (event) {
+      console.log('Form dblclicked', event.target);
+    });
+
+    function totalArgs() {
+      return [].reduce.call(arguments, function (total, next) {
+        return total + next;
+      }, 0)
+    }
 
     console.log(button);
 </script>
