@@ -1,4 +1,4 @@
-<div>
+<div style="padding: 20px;">
     <form id="form">
         <button type="submit" id="go-button">Go</button>
     </form>
@@ -15,11 +15,11 @@
     });
 
     button.addEventListener('click', function handleClick(event) {
-      console.log('Button clicked!');
+      console.log('Button clicked!', event.target);
     });
 
     div.addEventListener('click', function (event) {
-      console.log('Div clicked!');
+      console.log('Div clicked!', event.target);
     });
 
     console.log(button);
