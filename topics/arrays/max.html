@@ -50,6 +50,16 @@
   ];
 
   function smokers(people) {
+    return people.filter(function (person) {
+      return person.isSmoking;
+    });
+  }
 
+  function smokerNames(people) {
+    return people.filter(function (person) {
+      return person.isSmoking;
+    }).map(function (person) {
+      return person.name;
+    })
   }
 </script>
