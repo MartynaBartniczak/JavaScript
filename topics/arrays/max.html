@@ -6,4 +6,10 @@
       return next > currentMax ? next : currentMax;
     }, -Infinity);
   }
+
+  function min(numbers) {
+    return numbers.reduce(function (currentMin, next) {
+      return next < currentMin ? next : currentMin;
+    }, Infinity);
+  }
 </script>
