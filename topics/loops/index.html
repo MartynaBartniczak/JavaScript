@@ -1,0 +1,37 @@
+<script>
+    //    console.log('hello');
+    //function times(n, f) {
+    //	for (var i = 0; i < n; i +=1) {
+    //        f(i)
+    //	}
+    //}
+    var numbers = [1, 2, 3, 4, 5];
+    var total = 0;
+
+    var howMany = numbers.length;
+    function times(n, callback) {
+        for (i = 0; i < howMany; i += 1) {
+            numbers.push(i);
+            total += numbers[i];
+        }
+    }
+    times(howMany, function (i) {
+        total += numbers[i];
+    });
+    console.log(total);
+    //
+    //    console.log(
+    //        numbers.reduce(
+    //        function (total, next, index, array) {
+    //            console.log(total, next, index, array)
+    //            return total + next;
+    //        }, 0
+    //        )
+    //    )
+
+    //	console.log(
+    //	    numbers.reduce(
+    //	        (total, next) => total + next, 0
+    //	    )
+    //	)
+</script>

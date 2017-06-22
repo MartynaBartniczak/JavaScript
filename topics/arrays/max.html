@@ -1,0 +1,34 @@
+<script>
+    //Math.max
+    function max(numbers) {
+
+        return numbers.reduce(function (currentMax, next) {
+            return next > currentMax ? next : currentMax;
+        }, -Infinity);
+    }
+
+    function min(numbers) {
+        return numbers.reduce(function (currentMin, next) {
+            return next < currentMin ? next : currentMin;
+        }, Infinity);
+    }
+
+
+    function total(numbers) {
+        return numbers.reduce(function (currentNumber, next) {
+            return next + currentNumber;
+        }, 0);
+    }
+
+    function odd(numbers) {
+        return numbers.filter(function (element) {
+            return element % 2 === 1;
+        });
+    }
+
+    function even(numbers) {
+        return numbers.filter(function (element) {
+            return element % 2 === 0;
+        });
+    }
+</script>
