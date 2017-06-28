@@ -15,6 +15,8 @@ I suggest solving those exercises in order:
 - map
 - filter
 - reduce
+- keys
+- values
 - translate
 - zip
 - compose
