@@ -10,6 +10,7 @@ I suggest solving those exercises in order:
 - sumArray
 - sumArguments
 - concat
+- range
 - increment
 - map
 - filter
