@@ -11,6 +11,7 @@ I suggest solving those exercises in order:
 - sumArguments
 - concat
 - range
+- customRange
 - increment
 - map
 - filter
