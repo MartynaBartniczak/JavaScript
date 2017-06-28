@@ -12,6 +12,7 @@ I suggest solving those exercises in order:
 - concat
 - range
 - customRange
+- steppedRange
 - increment
 - map
 - filter
