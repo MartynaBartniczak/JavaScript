@@ -4,6 +4,8 @@ Make everything green ;)
 
 I suggest solving those exercises in order:
 
+- string
+- number
 - sum
 - sumArray
 - sumArguments

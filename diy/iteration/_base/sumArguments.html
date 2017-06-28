@@ -13,9 +13,6 @@
     // TODO implement
   }
   QUnit.test('Sum any number of integers', function (assert) {
-    assert.equal(sumArguments(1, 2), 3);
-    assert.equal(sumArguments(2, 4, 8), 14);
-    assert.equal(sumArguments(-2, -4, 8), 2);
     assert.throws(function () {
       sumArguments('a', 2);
     }, 'Number expected');
@@ -25,5 +22,8 @@
     assert.throws(function () {
       sumArguments(3, 'b');
     }, 'Number expected');
+    assert.equal(sumArguments(1, 2), 3);
+    assert.equal(sumArguments(2, 4, 8), 14);
+    assert.equal(sumArguments(-2, -4, 8), 2);
   });
 </script>
