@@ -13,23 +13,12 @@
    *                  result and currently iterated element.
    */
   function reduce(items, process, base) {
-    if (base !== undefined) {
-      var result = base;
-
-      for (var i = 0; i < items.length; i += 1) {
-        result = process(result, items[i])
-      }
-
-      return result;
-    } else {
-      var result = items[0];
-
-      for (var i = 1; i < items.length; i += 1) {
-        result = process(result, items[i])
-      }
-
-      return result;
+    var result = base === undefined ? items[0] : base;
+    var i = base === undefined ? 1 : 0;
+    for (; i < items.length; i += 1) {
+      result = process(result, items[i])
     }
+    return result;
   }
 
   QUnit.test('Reduce items', function (assert) {
