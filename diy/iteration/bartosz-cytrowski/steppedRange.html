@@ -13,7 +13,13 @@
    * @param step
    */
   function steppedRange(size, from, step) {
-    // TODO implement
+    var result = [];
+
+    for (var i = 0; i < size; i += 1) {
+      result.push(from + i * step)
+    }
+
+    return result
   }
   QUnit.test('Generate range', function (assert) {
     assert.deepEqual(steppedRange(2, 0, 1), [0, 1]);
