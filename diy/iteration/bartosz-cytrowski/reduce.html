@@ -11,6 +11,7 @@
    * @param items - array
    * @param process - function that returns single value and accepts previous iteration
    *                  result and currently iterated element.
+   * @param base - initial reduction value
    */
   function reduce(items, process, base) {
     var result = base === undefined ? items[0] : base;
