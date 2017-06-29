@@ -12,7 +12,11 @@
    * @param students
    */
   function getStudentTopNotes(students) {
-    // TODO implement
+    return students.map(function (student) {
+      return student.notes.reduce(function (currentMax, next) {
+        return Math.max(currentMax, next)
+      }, -Infinity)
+    })
   }
   QUnit.test('Get top notes', function (assert) {
     assert.deepEqual(
