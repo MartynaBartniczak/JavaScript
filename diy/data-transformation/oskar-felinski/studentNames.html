@@ -12,7 +12,9 @@
    * @param students
    */
   function getStudentNames(students) {
-
+		return students.map(function (student) {
+		    return student.name;
+		})
   }
   QUnit.test('Get student names', function (assert) {
     assert.deepEqual(
