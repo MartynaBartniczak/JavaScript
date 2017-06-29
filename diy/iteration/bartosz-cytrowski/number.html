@@ -12,7 +12,10 @@
    * @param x
    */
   function number(x) {
-    // TODO implement
+    if (typeof x !== 'number' || isNaN(x)) {
+      throw TypeError('Number expected')
+    }
+    return x
   }
   QUnit.test('Throws for non numbers', function (assert) {
     var data = [
