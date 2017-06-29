@@ -12,7 +12,15 @@
    * @param students
    */
   function getStudentsWithTopNotes(students) {
-    // TODO implement
+
+          return students.map(function (student) {
+              return {
+                  id: student.id,
+                  name: student.name,
+                  topNote: student.notes.reduce(function (currentMax, next) {return Math.max(currentMax, next)
+                  })
+              }
+          })
   }
 
   QUnit.test('Get students with top notes', function (assert) {
