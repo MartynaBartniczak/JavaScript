@@ -13,14 +13,6 @@
    */
   function getStudentsWithTopNotes(students) {
     return students.map(function (student) {
-//      var result = {};
-//      result.id = student.id;
-//      result.name = student.name;
-//      result.topNote = student.notes.reduce(function (currentMax, next) {
-//        return Math.max(currentMax, next)
-//      }, -Infinity);
-//
-//      return result
       return Object.assign({}, student, {
         topNote: student.notes.reduce(function (currentMax, next) {
           return Math.max(currentMax, next)
