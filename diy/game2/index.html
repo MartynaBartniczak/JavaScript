@@ -6,6 +6,10 @@
 
 <div style="padding: 20px;">
     <form id="form">
+
+        <button type="submit" id="go-button">Go</button>
+        <button type="submit" id="go-button">Go</button>
+        <button type="submit" id="go-button">Go</button>
         <button type="submit" id="go-button">Go</button>
     </form>
 </div>
@@ -27,17 +31,22 @@
 
     button.addEventListener('click', function (event) {
       console.log('Button clicked!', event.target);
-      if (event.target.classList.contains('red')) {
-        event.target.classList.remove('red');
-      } else {
-        event.target.classList.add('red');
-      }
+
     });
 
     div.addEventListener('click', function (event) {
       console.log('Div clicked!', arguments[0].target);
+      console.log(event.target);
+      if (event.target.localName!=="button"){
+          return;
+      }
+        if (event.target.classList.contains('red')) {
+            event.target.classList.remove('red');
+        } else {
+            event.target.classList.add('red');
+        }
     });
-
+//
     form.addEventListener('click', function () {
       var zupa = arguments[0];
       console.log('Form clicked!', zupa.target);

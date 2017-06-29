@@ -9,23 +9,9 @@
    * Returns concatenation of all strings passed to it.
    * Throws 'String expected' if any of arguments is not one.
    */
-
-  function string(x) {
-
-      if (typeof x !== 'string'){
-          throw TypeError('String expected')
-      }
-      return x;
-  }
-
   function concat() {
-      var result = '';
-      for (var i = 0; i < arguments.length; i += 1) {
-          result += string(arguments[i]);
-      }
-      return result;
+    // TODO implement
   }
-
   QUnit.test('Concat strings', function (assert) {
     assert.throws(function () {
       concat('a', 2);

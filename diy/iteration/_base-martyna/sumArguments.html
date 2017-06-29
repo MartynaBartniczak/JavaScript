@@ -9,20 +9,8 @@
    * Returns sum of all arguments.
    * Throws 'Number expected' if any of arguments is not a number.
    */
-
-  function number(x) {
-      if (typeof x !== 'number' || isNaN(x) ){
-          throw TypeError('Number expected')
-      }
-      return x;
-  }
-
   function sumArguments() {
-          var result = 0;
-      for (var i = 0; i < arguments.length; i += 1) {
-          result += number(arguments[i]);
-      }
-      return result;
+    // TODO implement
   }
   QUnit.test('Sum any number of integers', function (assert) {
     assert.throws(function () {

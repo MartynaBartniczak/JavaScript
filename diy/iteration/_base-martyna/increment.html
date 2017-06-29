@@ -13,12 +13,6 @@
    */
   function increment(items, value) {
     // TODO implement
-      var result = [];
-      for (var i = 0; i <items.length; i +=1 ) {
-      result.push(items[i] + value);
-      }
-
-      return result;
   }
   QUnit.test('Map items', function (assert) {
     assert.deepEqual(increment([1, 2, 3], 3), [4, 5, 6]);
