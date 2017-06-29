@@ -14,17 +14,17 @@
     // TODO implement
   }
   QUnit.test('Sum an array of integers', function (assert) {
-    assert.equal(sumArray([1, 2]), 3);
-    assert.equal(sumArray([2, 4, 8]), 14);
-    assert.equal(sumArray([-2, -4, 8]), 2);
     assert.throws(function () {
       sumArray(['a', 2]);
     }, 'Number expected');
     assert.throws(function () {
-      sumArray(['a', 'b']);
+      sumArray([1, 2, []]);
     }, 'Number expected');
     assert.throws(function () {
-      sumArray([3, 'b']);
+      sumArray([3, 'b', 3]);
     }, 'Number expected');
+    assert.equal(sumArray([1, 2]), 3);
+    assert.equal(sumArray([2, 4, 8]), 14);
+    assert.equal(sumArray([-2, -4, 8, 2]), 4);
   });
 </script>

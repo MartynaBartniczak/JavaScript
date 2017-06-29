@@ -89,8 +89,9 @@
   function moveForward($direction, snake) {
     $(snake).removeClass('snake');
     var $target = $direction(head(snake));
+    var weEatApple = $target.hasClass('apple');
     snake = $target.get().concat(
-      $target.hasClass('apple') ?
+       weEatApple ?
         snake : snake.slice(0, -1)
     );
     $target.removeClass('apple');
