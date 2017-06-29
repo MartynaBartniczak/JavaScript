@@ -13,7 +13,17 @@
    * @param students
    */
   function getGroupsWithStudents(groups, students) {
-    // TODO implement
+    return groups.map(function (group) {
+      return {
+        id: group.id,
+        name: group.name,
+        students: group.studentIds.map(function (studentId) {
+          return students.find(function (student) {
+            return student.id === studentId
+          })
+        })
+      }
+    })
   }
   QUnit.test('Get groups with students', function (assert) {
     assert.deepEqual(
