@@ -13,7 +13,15 @@
    */
   function map(items, transform) {
     // TODO implement
+
+
+      var result = [];
+      for (var i = 0; i < items.length; i+= 1){
+          result.push(transform(items[i]));
+      }
+      return result;
   }
+
   QUnit.test('Map items', function (assert) {
     assert.deepEqual(map([1, 2, 3], function (item) {
       return item * 10;
