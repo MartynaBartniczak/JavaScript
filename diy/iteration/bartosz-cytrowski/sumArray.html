@@ -10,8 +10,21 @@
    *
    * @param numbers - array of numbers
    */
+  function number(x) {
+    if (typeof x !== 'number' || isNaN(x)) {
+      throw TypeError('Number expected')
+    }
+    return x
+  }
+
   function sumArray(numbers) {
-    // TODO implement
+    var result = 0;
+
+    for (var i = 0; i < numbers.length; i += 1) {
+      result += number(numbers[i]);
+    }
+
+    return result;
   }
   QUnit.test('Sum an array of integers', function (assert) {
     assert.throws(function () {
