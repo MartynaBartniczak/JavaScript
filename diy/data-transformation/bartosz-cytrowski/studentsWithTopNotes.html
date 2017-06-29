@@ -21,13 +21,11 @@
 //      }, -Infinity);
 //
 //      return result
-      return {
-        id: student.id,
-        name: student.name,
+      return Object.assign({}, student, {
         topNote: student.notes.reduce(function (currentMax, next) {
           return Math.max(currentMax, next)
         }, -Infinity)
-      }
+      })
     })
   }
 
@@ -38,17 +36,20 @@
         {
           id: 1,
           name: 'Jacek',
-          topNote: 5
+          topNote: 5,
+          notes: [5, 3, 4, 2, 5, 5]
         },
         {
           id: 2,
           name: 'Ewa',
-          topNote: 5
+          topNote: 5,
+          notes: [2, 3, 3, 3, 2, 5]
         },
         {
           id: 3,
           name: 'Zygmunt',
-          topNote: 4
+          topNote: 4,
+          notes: [2, 2, 4, 4, 3, 3]
         }
       ]
     );
