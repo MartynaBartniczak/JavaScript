@@ -12,7 +12,15 @@
    * @param predicate - function that returns boolean value and accepts item as an argument
    */
   function filter(items, predicate) {
-    // TODO implement
+    var result = [];
+
+    for (var i = 0; i < items.length; i += 1) {
+      if (predicate(items[i]) === true) {
+        result.push(items[i])
+      }
+    }
+
+    return result
   }
   QUnit.test('Filter items', function (assert) {
     assert.deepEqual(
