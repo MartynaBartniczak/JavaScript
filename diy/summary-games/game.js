@@ -1,4 +1,24 @@
+
+
 function play() {
+  function update() {
+    if (carDistance >= trackLength) {
+      clearInterval(gameLoopId);
+      alert('END');
+      return;
+    }
+
+    var dTime = 0.010;
+    if (gasPressed === true) {
+      carSpeed = carSpeed + acceleration * dTime;
+    } else {
+      carSpeed = Math.max(0, carSpeed + carSpeed * deceleration * dTime);
+    }
+
+    carDistance = carDistance + carSpeed * dTime;
+    $car.css('margin-left', carDistance);
+  }
+
   var $car = $('<div>').addClass('car');
   var $track = $('<div>').addClass('track');
   var $game = $('#game');
@@ -16,23 +36,7 @@ function play() {
 
   trackLength = $track.width();
 
-  gameLoopId = setInterval(function () {
-    if (carDistance >= trackLength) {
-      clearInterval(gameLoopId);
-      alert('END');
-      return;
-    }
-
-    var dTime = 0.010;
-    if (gasPressed === true) {
-      carSpeed = carSpeed + acceleration * dTime;
-    } else {
-      carSpeed = Math.max(0, carSpeed + carSpeed * deceleration * dTime);
-    }
-
-    carDistance = carDistance + carSpeed * dTime;
-    $car.css('margin-left', carDistance);
-  }, 10);
+  gameLoopId = setInterval(update, 10);
 
   $(window).on('keydown', function (event) {
     console.log('keydown');
