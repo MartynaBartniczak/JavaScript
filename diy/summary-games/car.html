@@ -25,26 +25,19 @@
     $track.append($car);
     $game.append($track);
 
+    setInterval(function () {
+      carSpeed = Math.max(0, carSpeed - 1);
+      $car.animate({
+        marginLeft: '+=' + carSpeed
+      }, 0)
+    }, 60);
+
     $(window).on('keydown', function (event) {
       console.log('keydown');
       if (event.keyCode === 32) {
         // spacebar pressed
-
-        carSpeed += 1;
-
-        setInterval(function () {
-          $car.animate({
-            marginLeft: '+=' + carSpeed
-          }, 0)
-        }, 60)
-      }
-    }).on('keyup', function (event) {
-      console.log('keyup');
-      if (event.keyCode === 32) {
-        // spacebar released
-        carSpeed -= 1;
+        carSpeed += 5;
       }
     })
-
   })
 </script>
