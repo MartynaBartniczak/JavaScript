@@ -22,8 +22,15 @@
     $track.append($car);
     $game.append($track);
 
-    $car.animate({
-      marginLeft: '100%'
-    }, 3000, 'linear')
+    $(window).on('keydown', function (event) {
+      if (event.keyCode === 32) {
+        // spacebar pressed
+
+        $car.animate({
+          marginLeft: '100%'
+        }, 3000, 'linear')
+      }
+    })
+
   })
 </script>
