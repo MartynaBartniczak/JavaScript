@@ -38,9 +38,7 @@
       }
 
       carDistance = carDistance + carSpeed * dTime;
-      $car.animate({
-        marginLeft: carDistance
-      }, 0)
+      $car.css('margin-left', carDistance)
     }, 10);
 
     $(window).on('keydown', function (event) {
