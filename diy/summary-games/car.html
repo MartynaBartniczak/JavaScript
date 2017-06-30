@@ -20,16 +20,26 @@
     var $track = $('<div>').addClass('track');
     var $game = $('#game');
 
+    var trackLength;
     var carSpeed = 0;
     var carDistance = 0;
     var gasPressed = false;
     var acceleration = 200;
     var deceleration = -1;
+    var gameLoopId;
 
     $track.append($car);
     $game.append($track);
 
-    setInterval(function () {
+    trackLength = $track.width();
+
+    gameLoopId = setInterval(function () {
+      if (carDistance >= trackLength) {
+        clearInterval(gameLoopId);
+        alert('END');
+        return;
+      }
+
       var dTime = 0.010;
       if (gasPressed === true) {
         carSpeed = carSpeed + acceleration * dTime;
@@ -38,7 +48,7 @@
       }
 
       carDistance = carDistance + carSpeed * dTime;
-      $car.css('margin-left', carDistance)
+      $car.css('margin-left', carDistance);
     }, 10);
 
     $(window).on('keydown', function (event) {
