@@ -14,25 +14,10 @@
   function regroupGroups(groups) {
     return groups.reduce(function (summary, next) {
       var attrName = next.studentIds.length === 1 ? 'onlyOne' : 'moreThanOne';
-
-      if (next.studentIds.length === 1) {
-        if (summary[attrName] === undefined) {
-          summary[attrName] = [next]
-        } else {
-          summary[attrName].push(next)
-        }
-
-        return summary;
-      }
-
-      if (next.studentIds.length > 1) {
-        if (summary[attrName] === undefined) {
-          summary[attrName] = [next]
-        } else {
-          summary[attrName].push(next)
-        }
-
-        return summary;
+      if (summary[attrName] === undefined) {
+        summary[attrName] = [next]
+      } else {
+        summary[attrName].push(next)
       }
       return summary;
     }, {})
