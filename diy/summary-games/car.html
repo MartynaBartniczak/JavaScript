@@ -1,0 +1,24 @@
+<style>
+    .track {
+        background: #84ddff;
+        border-bottom: 5px solid #000;
+        padding-top: 100px;
+    }
+    .car {
+        background: #c00;
+        width: 30px;
+        height: 20px;
+    }
+</style>
+<div id="game"></div>
+<script src="../../vendor/jquery.js"></script>
+<script>
+  $(function () {
+    var $car = $('<div>').addClass('car');
+    var $track = $('<div>').addClass('track');
+    var $game = $('#game');
+
+    $track.append($car);
+    $game.append($track);
+  })
+</script>
