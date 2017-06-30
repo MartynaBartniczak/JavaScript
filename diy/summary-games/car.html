@@ -21,22 +21,37 @@
     var $game = $('#game');
 
     var carSpeed = 0;
+    var carDistance = 0;
+    var gasPressed = false;
+    var acceleration = 200;
+    var deceleration = -1;
 
     $track.append($car);
     $game.append($track);
 
     setInterval(function () {
-      carSpeed = Math.max(0, carSpeed - 1);
+      var dTime = 0.010;
+      if (gasPressed === true) {
+        carSpeed = carSpeed + acceleration * dTime;
+      } else {
+        carSpeed = Math.max(0, carSpeed + carSpeed * deceleration * dTime);
+      }
+
+      carDistance = carDistance + carSpeed * dTime;
       $car.animate({
-        marginLeft: '+=' + carSpeed
+        marginLeft: carDistance
       }, 0)
-    }, 60);
+    }, 10);
 
     $(window).on('keydown', function (event) {
       console.log('keydown');
       if (event.keyCode === 32) {
         // spacebar pressed
-        carSpeed += 5;
+        gasPressed = true;
+      }
+    }).on('keyup', function (event) {
+      if (event.keyCode === 32) {
+        gasPressed = false;
       }
     })
   })
