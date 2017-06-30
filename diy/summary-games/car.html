@@ -5,6 +5,7 @@
         padding-top: 100px;
         overflow: hidden;
     }
+
     .car {
         background: #c00;
         width: 30px;
@@ -19,16 +20,29 @@
     var $track = $('<div>').addClass('track');
     var $game = $('#game');
 
+    var carSpeed = 0;
+
     $track.append($car);
     $game.append($track);
 
     $(window).on('keydown', function (event) {
+      console.log('keydown');
       if (event.keyCode === 32) {
         // spacebar pressed
 
-        $car.animate({
-          marginLeft: '100%'
-        }, 3000, 'linear')
+        carSpeed += 1;
+
+        setInterval(function () {
+          $car.animate({
+            marginLeft: '+=' + carSpeed
+          }, 0)
+        }, 60)
+      }
+    }).on('keyup', function (event) {
+      console.log('keyup');
+      if (event.keyCode === 32) {
+        // spacebar released
+        carSpeed -= 1;
       }
     })
 
