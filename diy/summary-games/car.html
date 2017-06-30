@@ -3,6 +3,7 @@
         background: #84ddff;
         border-bottom: 5px solid #000;
         padding-top: 100px;
+        overflow: hidden;
     }
     .car {
         background: #c00;
@@ -20,5 +21,9 @@
 
     $track.append($car);
     $game.append($track);
+
+    $car.animate({
+      marginLeft: '100%'
+    }, 3000, 'linear')
   })
 </script>
