@@ -15,10 +15,9 @@
     return groups.reduce(function (summary, next) {
       var attrName = next.studentIds.length === 1 ? 'onlyOne' : 'moreThanOne';
       if (summary[attrName] === undefined) {
-        summary[attrName] = [next]
-      } else {
-        summary[attrName].push(next)
+        summary[attrName] = []
       }
+      summary[attrName].push(next);
       return summary;
     }, {})
   }
